@@ -2,8 +2,6 @@ package org.example.consoleClient;
 
 import org.example.factory.RaktarFactory;
 import org.example.factory.Raktár;
-import org.example.models.Beszallito;
-import org.example.models.Rendeles;
 
 public class Kliens {
 

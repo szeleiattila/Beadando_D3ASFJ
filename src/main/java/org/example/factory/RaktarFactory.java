@@ -12,7 +12,7 @@ public class RaktarFactory {
         }
         return instance;
     }
-        //abstact factory
+
     public Raktár makeRaktár(char raktarType){
         switch (raktarType){
             case 'b':

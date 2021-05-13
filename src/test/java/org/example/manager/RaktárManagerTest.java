@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 public class RaktárManagerTest {
 
-    @Test
+   /* @Test
     public void testIfObserversupdated(){
         MockObserver observer = new MockObserver();
         Raktár observable = new ÉlelmiszerRaktár();
@@ -32,5 +32,5 @@ class MockObserver implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         updated = true;
-    }
+    }*/
 }

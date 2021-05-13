@@ -7,48 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-public interface Raktár extends Observable {
+public interface Raktár {
 
-    //private Raktár(){};
-     static Raktár instance =null;
-
-     List<Aru> aruList = new ArrayList<>();
-
-    public static Raktár getInstance(){
-        if(instance==null){
-            instance= new Raktár();
-
-        }
-        return instance;
-    }
-
-    private void raktárkészletChange(){
+     /*default void raktárkészletChange(){
         setChanged();
         notifyObservers();
-    }
-
-    public void addAru(Aru aru){
-            this.aruList.add(aru);
-            raktárkészletChange();
-
-    }
-
-    public void removeAru(Aru aru){
-        this.aruList.remove(aru);
-        raktárkészletChange();
-
-    }
+    }*/
+     int limit = 1000;
+     void addAru(Aru aru);
+     void removeAru(Aru aru);
+     void updateAru(Aru aru);
 
 
-    public List<Aru> getData(){
-        return this.aruList;
-    }
 
-    @Override
-    public String toString() {
-        return "Raktár{" +
-                "limit=" + limit +
-                ", aruList=" + aruList +
-                '}';
-    }
 }
