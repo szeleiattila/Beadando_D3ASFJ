@@ -14,6 +14,8 @@ public class App
 
     public static void main(String[] args) {
 
+
+/*
             Beszallito beszallito = new Beszallito();
             Rendeles rendeles = new Rendeles();
 
@@ -23,6 +25,6 @@ public class App
             beszallito.testBeszallito();
             beszallito.testBeszallito();
             rendeles.testRendeles();
-            System.out.println(raktár.getData());
+            System.out.println(raktár.getData());*/
     }
 }

@@ -17,9 +17,9 @@ public class AruFactory {
     public Aru makeAru(AruType aruType){
         switch (aruType){
             case élelmiszer:
-                return new Elelmiszer(AruType.élelmiszer,"01","Kifli",100);
+                return new Elelmiszer();
             case bútor:
-                return new Butor(AruType.bútor,"01","Kanapé", 10000);
+                return new Butor();
             default:
                 return null;
         }

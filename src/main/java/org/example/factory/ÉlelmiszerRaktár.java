@@ -5,7 +5,7 @@ import org.example.models.Aru;
 public class ÉlelmiszerRaktár implements Raktár {
 
     @Override
-    public void addAru(Aru aru) {
+    public void addAru() {
         System.out.println("Hozzáadtunk egy árut az élelmiszer raktárunkhoz.");
     }
 

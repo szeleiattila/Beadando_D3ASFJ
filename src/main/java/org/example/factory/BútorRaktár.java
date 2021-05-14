@@ -6,8 +6,10 @@ import org.example.models.Aru;
 public class BútorRaktár implements Raktár {
 
 
+
+
     @Override
-    public void addAru(Aru aru) {
+    public void addAru() {
         System.out.println("Hozzáadtam egy Bútort a bútorraktárhoz." );
     }
 

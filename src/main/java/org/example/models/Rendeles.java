@@ -10,7 +10,6 @@ import java.util.List;
 @Data
 public class Rendeles {
 
-
     Vasarlo vasarlo;
     private int id;
     private int mennyiseg;

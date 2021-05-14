@@ -14,7 +14,7 @@ public interface Raktár {
         notifyObservers();
     }*/
      int limit = 1000;
-     void addAru(Aru aru);
+     void addAru();
      void removeAru(Aru aru);
      void updateAru(Aru aru);
 
