@@ -9,7 +9,7 @@ public interface RaktarDAO {
     void addAru(Aru aru); // throws RaktarIsFull;
     Collection<Aru> readAllAru();
     Aru readAru (String id) throws AruNotFound;
-    Aru readAruById(String id);// throws AruNotFound;
+    Collection<Aru> readAruById(String id) throws AruNotFound;// throws AruNotFound;
     void updateAru(Aru aru);
     void deleteAru(Aru aru);
 }

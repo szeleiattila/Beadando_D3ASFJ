@@ -17,8 +17,39 @@ public abstract class Aru {
     protected AruType aruType;
     protected String id;
     protected String nev;
-
     protected int ar;
+
+    public AruType getAruType() {
+        return aruType;
+    }
+
+    public void setAruType(AruType aruType) {
+        this.aruType = aruType;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNev() {
+        return nev;
+    }
+
+    public void setNev(String nev) {
+        this.nev = nev;
+    }
+
+    public int getAr() {
+        return ar;
+    }
+
+    public void setAr(int ar) {
+        this.ar = ar;
+    }
 
     public Aru() {
 
