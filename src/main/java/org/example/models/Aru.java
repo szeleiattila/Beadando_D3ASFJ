@@ -1,11 +1,6 @@
 package org.example.models;
-
-
-import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.Data;
 import org.example.exceptions.AruNotFound;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 

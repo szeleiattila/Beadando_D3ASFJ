@@ -23,7 +23,133 @@ Továbbá különböző **tervezési mintákat**.
     készítsünk gyártómetódust.
 
          A
-    gyártómetódus a nevében magadott terméket adja vissza, tehát a készítKutya (angolul: createDog) egy
-    kutyát, a készítMacska (angolul: createCat) egy macskát. Ez azért jobb, mint a new Kutya() vagy a new
-    Macska() konstruktor hívás, mert itt az elkészítés algoritmusát egységbe tudjuk zárni. Ez azért előnyös,
+    gyártómetódus a nevében magadott terméket adja vissza, tehát a készítRaktár (makeRaktár) egy
+    raktárat. Ez azért jobb, mint a new Rartár() konstruktor hívás, mert itt az elkészítés algoritmusát egységbe tudjuk zárni. Ez azért előnyös,
     mert ha a gyártás folyamata változik, akkor azt csak egy helyen kell módosítani.
+
+- Megfigyelő ( Observer )
+    - egy viselkedési tervezési minta, amely egy esemény által kiváltott változékony metódust emel ki egy egy-sok kapcsolat sok oldalára.A megfigyelő tervezési minta lehetővé teszi, hogy egy objektum megváltozása esetén értesíteni tudjon
+    tetszőleges más objektumokat anélkül, hogy bármit is tudna róluk.
+
+    Kétfajta megfigyelő megvalósítást ismerünk:
+    - „Pull-os” vagy húzó megfigyelő: Ebben az esetben a megfigyelő lehúzza a változásokat az
+    alanytól.
+    - „Push-os” vagy toló megfigyelő: Ebben az esetben az alany odanyomja a változásokat a
+megfigyelőnek.
+
+## Tervezési minták implementációja.
+
+- ### Singleton 
+            private RaktarFactory(){}
+            private static RaktarFactory instance ;
+            public static RaktarFactory getInstance(){
+            if (instance ==null) {
+            instance = new RaktarFactory();
+        }
+        return instance;
+        }
+    **Magyarázat**: A RaktarFactoryból csak egy példány szeretnénk a rendszerben, valamint szeretnénk hogy elérhető legyen globálisan több elem számára is.
+    
+    A private konstruktor azért kell hogy ne lehessen new kulcsszóval példányosítani.
+
+    Kell egy statikus mező az egyetlen példányunk számára.
+
+    Valamint egy getInstance metódus, ami biztosítja számunkra a példányosítást és egyben visszaadja a példányt, ha még nem létezik akkor létrehozza ha már létezik akkor visszadja ugyanazt.
+
+    Az AruFactory osztályban is ugyan ezt alkalmaztam.
+
+- ### Factory method
+---
+          
+        public interface Raktár {
+            VARIABLES;
+            METHODS();
+           }
+---
+        public class ÉlelmiszerRaktár implements RaktáR {
+
+         @Override
+            METHODS();
+        }
+---
+        public class BútorRaktár implements Raktár {
+
+            @Override
+            METHODS();
+        }
+---
+        public class RaktarFactory{
+
+            public static Raktár makeRaktár(char raktarType){
+        switch (raktarType){
+            case 'b':
+                return new BútorRaktár();
+            case 'e':
+                return new ÉlelmiszerRaktár();
+            default:
+                return null;
+                }
+            }
+        }
+
+**Magyarázat**: Ha különböző megvalósítású, de azonos felületű objektumokat szeretnénk létrehozni a klienstől elszigetelten, akkor a factory tervezési mintát ajánlott használni.
+
+A módszer lényege hogy könnyen bővíthető legyen, és a kliensnek minimális módosítás, ismeretre legyen szüksége.
+
+Szükségünk van egy Objektumra ami a "termékek" közös jellemzőit foglalja össze. Ez a Raktár interface.
+
+ - Ha van adat jellegű közös tagjuk, akkor absztrakt osztály, egyébként interface. Ebben a programban mindkettőt megvalósítottam.
+
+A különböző raktárok implementálják a Raktar interfészt és Overrideolják a metódusokat, vagy ha absztrakt osztályról van szó akkor származnak abból. (class abstract Aru).
+
+A RaktarFactorynk tartalmaz egy makeRaktár metódust, amely
+- ismeri a Raktár termékeket,
+- visszatérési értéke Raktar,
+- Raktár títpus alapján eldönti melyik osztály példánya kell.
+
+### Observer
+
+
+           public interface Observer  {
+
+            void update(String msg) ;
+        } 
+---
+        public interface Subject {
+
+        void addObserver(org.example.manager.Observer o);
+        void deleteObserver(Observer o) ;
+        void notifyObserver();
+    }
+---
+    public class RaktárManager implements Subject {
+
+
+    //obverser collection tárol
+    private Collection<Observer> raktarObserverek= new ArrayList<>();
+
+    @Override
+    public void addObserver(...
+    }
+
+    @Override
+    public void deleteObserver(...
+    }
+
+    @Override
+    public void notifyObserver(...
+        }
+    }
+    
+Observer felület (Megfigyelő) Frissítő interfészt határoz
+meg az értesítendő objektumok számára. Frissítő
+(update) művelet segítségével.
+
+A Subject (Alany) tárolja a beregisztrált megfigyelőket, interfészt kínál a megfigyelők be- és
+kiregisztrálására valamint értesítésére.
+
+A Raktármanager osztály egy private listában tárolja az observereket. Implementálja a Subject interfészt, és felülírja a metódusait. 
+- Amikor egy observer regisztrál, egyszerűen hozzáadjuk a listához(addObserver)
+-  amikor egy observer kéri a törlését, egyszerűen töröljük a listából(deleteObserver)
+- szólunk az observereknek az állapotról
+  mivel mind observerek, van Update() metódusuk, így tudjuk őket értesíteni (notifyObserver)

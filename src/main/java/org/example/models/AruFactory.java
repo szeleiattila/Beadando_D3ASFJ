@@ -14,7 +14,7 @@ public class AruFactory {
         return instance;
     }
 
-    public Aru makeAru(AruType aruType){
+    public static Aru makeAru(AruType aruType){
         switch (aruType){
             case élelmiszer:
                 return new Elelmiszer();

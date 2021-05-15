@@ -9,10 +9,7 @@ import java.util.Observable;
 
 public interface Raktár {
 
-     /*default void raktárkészletChange(){
-        setChanged();
-        notifyObservers();
-    }*/
+
      int limit = 1000;
      void addAru();
      void removeAru(Aru aru);

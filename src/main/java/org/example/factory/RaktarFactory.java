@@ -5,8 +5,7 @@ import org.example.manager.RaktárManager;
 import org.omg.CORBA.Object;
 
 public class RaktarFactory{
-    private RaktarFactory(){
-    }
+
     //private static Factory instance = new Factory(); --> Mohó singleton
     //Lusta singleton
     private static RaktárManager rmInstance ;
@@ -16,6 +15,7 @@ public class RaktarFactory{
         }
         return  rmInstance;
     }
+    private RaktarFactory(){}
     private static RaktarFactory instance ;
     public static RaktarFactory getInstance(){
         if (instance ==null) {
@@ -24,7 +24,7 @@ public class RaktarFactory{
         return instance;
     }
 
-    public Raktár makeRaktár(char raktarType){
+    public static Raktár makeRaktár(char raktarType){
         switch (raktarType){
             case 'b':
                 return new BútorRaktár();
