@@ -1,31 +1,30 @@
 package org.example.manager;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import org.example.factory.Raktár;
-import org.example.models.Aru;
-
 import java.util.*;
 
-public class RaktárManager implements Observable {
+public class RaktárManager implements Subject {
+
+
     //obverser collection tárol
     private Collection<Observer> raktarObserverek= new ArrayList<>();
 
-
     @Override
-    public void addListener(InvalidationListener listener) {
-        raktarObserverek.add((Observer) listener);
-
+    public void addObserver(org.example.manager.Observer o) {
+        raktarObserverek.add(o);
     }
 
     @Override
-    public void removeListener(InvalidationListener listener) {
-        raktarObserverek.remove(listener);
+    public void deleteObserver(org.example.manager.Observer o) {
+        raktarObserverek.remove(o);
     }
 
-
-    /*@Override
-    public void update(Observable o, Object arg) {
-        aruList.addAll(((Raktár)o).getData());
-    }*/
+    @Override
+    public void notifyObserver() {
+        System.out.println("A raktárkészlet megváltozott");
+        for (Observer observer:raktarObserverek){
+            observer.update("Változás");
+        }
+    }
 }
+
+

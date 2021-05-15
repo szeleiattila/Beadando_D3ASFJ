@@ -1,8 +1,9 @@
 package org.example.factory;
 
+import org.example.manager.Observer;
 import org.example.models.Aru;
 
-public class ÉlelmiszerRaktár implements Raktár {
+public class ÉlelmiszerRaktár implements Raktár, Observer {
 
     @Override
     public void addAru() {
@@ -17,5 +18,10 @@ public class ÉlelmiszerRaktár implements Raktár {
     @Override
     public void updateAru(Aru aru) {
         System.out.println("Az élelmiszer raktárkészlete megváltozott.");
+    }
+
+    @Override
+    public void update(String msg) {
+        System.out.println("Az élelmiszer raktárkészlete megváltozott");
     }
 }

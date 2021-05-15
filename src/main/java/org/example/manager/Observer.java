@@ -1,13 +1,9 @@
 package org.example.manager;
 
 import java.util.Observable;
+//interface
+public interface Observer  {
 
-public class Observer implements java.util.Observer {
-
-
-    @Override
-    public void update(Observable o, Object arg) {
-
-    }
+    void update(String msg) ;
 
 }
