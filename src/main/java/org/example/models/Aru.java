@@ -1,7 +1,13 @@
 package org.example.models;
 
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.Data;
+import org.example.exceptions.AruNotFound;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Data
 public abstract class Aru {
@@ -54,8 +60,16 @@ public abstract class Aru {
     public Aru() {
 
     }
+    public Aru readAruById(String id) throws AruNotFound {
+        Collection<Aru> aruk = new ArrayList<Aru>();
+        for (Aru a: aruk  ){
+            if(a.getId().equals(id)){
+                return a;
+            }
+        }
+        return null;
+    }
 
-    //id alapján lekérdezés
 
 
 }

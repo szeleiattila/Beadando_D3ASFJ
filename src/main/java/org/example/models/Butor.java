@@ -1,5 +1,7 @@
 package org.example.models;
 
+import org.example.exceptions.AruNotFound;
+
 public class Butor extends Aru {
     public Butor(AruType aruType, String id, String nev,   int ar) {
         super(aruType, id, nev, ar);
@@ -12,8 +14,11 @@ public class Butor extends Aru {
         this.setAr(ar);
 
     }
-
     public Butor() {
-        
+    }
+
+    @Override
+    public Aru readAruById(String id) throws AruNotFound {
+        return super.readAruById(id);
     }
 }
