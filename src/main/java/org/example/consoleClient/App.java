@@ -15,16 +15,5 @@ public class App
     public static void main(String[] args) {
 
 
-/*
-            Beszallito beszallito = new Beszallito();
-            Rendeles rendeles = new Rendeles();
-
-            Raktár raktár = RaktarFactory.getInstance().makeRaktár('e');
-
-            beszallito.testBeszallito();
-            beszallito.testBeszallito();
-            beszallito.testBeszallito();
-            rendeles.testRendeles();
-            System.out.println(raktár.getData());*/
     }
 }

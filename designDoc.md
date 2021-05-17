@@ -37,6 +37,13 @@ Továbbá különböző **tervezési mintákat**.
     - „Push-os” vagy toló megfigyelő: Ebben az esetben az alany odanyomja a változásokat a
 megfigyelőnek.
 
+- Építő ( Builder )
+    - Létrehozási tervezési minta, amely több lépésben képes felépíteni egy
+    összetett objektumot, és azt az építési folyamat végén visszaadni. Segítségével könnyen lehet
+    olyan új építőt létrehozni, amelyben az építés lépései hasonlóak, de az építés eredménye egy kicsit
+    más. Előnye, hogy
+    szétválasztja az építés folyamatát és az elkészült objektum lekérdezését.
+
 ## Tervezési minták implementációja.
 
 - ### Singleton 
@@ -153,3 +160,50 @@ A Raktármanager osztály egy private listában tárolja az observereket. Implem
 -  amikor egy observer kéri a törlését, egyszerűen töröljük a listából(deleteObserver)
 - szólunk az observereknek az állapotról
   mivel mind observerek, van Update() metódusuk, így tudjuk őket értesíteni (notifyObserver)
+
+### Builder
+
+**Builder interfész**, amely deklarálja a termékrész objektum létrehozására szolgáló
+absztrakt műveleteket.
+
+            public interface RendelesBuilder  {
+            RendelesBuilder setVasarlo(...;
+            Absztrakt methods();
+---
+**Builder implementációs osztály**, definiálja a Builder interfészben előírt metódusokat
+felépíti és összeállítja a termék adott részét
+
+            public class RendelesBuilderImpl implements RendelesBuilder{..
+            
+            @Override
+            RendelesBuilder setVasarlo(...
+
+            @Override
+            public Rendeles build() 
+            {return new Rendeles(...)
+            }
+            ...
+---
+**Termék osztály** ,
+ami az elkészítendő osztály maga. A *Builder impl osztály* felépíti ennek a terméknek belső ábrázolását és definiálja
+az összeállítási folyamatokat.
+
+    
+    public class Rendeles {
+    public List<RendelesiElemek> getRendelesiLista() {
+        return bevasarloLista;
+    }
+    ...
+    }
+    
+---
+**Termék részei osztály** 
+Az az osztály ami a termék részeit tartalmazza. Jelen esetben a rendelesi lista,
+
+            public class RendelesiElemek {
+    
+     private String aruNev;
+     private String aruType;
+     private int mennyiseg;
+     ...}
+

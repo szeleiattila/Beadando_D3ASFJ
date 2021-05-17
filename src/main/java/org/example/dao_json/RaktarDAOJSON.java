@@ -56,8 +56,8 @@ public class RaktarDAOJSON implements RaktarDAO {
 
     @Override
     public Aru readAru(String id) throws AruNotFound{
-        Collection<Aru> kutyak = readAllAru();
-        for (Aru a: kutyak){
+        Collection<Aru> aruk = readAllAru();
+        for (Aru a: aruk){
             if(a.getId().equalsIgnoreCase(id)){
                 return a;
             }
